@@ -33,6 +33,10 @@ if current_lang == "pt_BR":
     msg = "Olá, Mundo!" # If the language is Portuguese, change the message.
 elif current_lang == "fr_FR":
     msg = "Bonjour, le Monde!" # If the language is French, change the message.
+elif current_lang == "es_ES":
+    msg = "¡Hola, Mundo!" # If the language is Spanish, change the message.
+elif current_lang == "de_DE":
+    msg = "Hallo, Welt!" # If the language is German, change the message.
 
 
 print(msg) # This line prints the value of the variable `msg` to the console.
