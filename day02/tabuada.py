@@ -23,22 +23,13 @@ Output:
 __version__ = "1.1"
 __author__  = "Alexandre Souza"
 
-template_base ="""
-----Tabuada do {0}:------
-
-    {bloco}
-
-#########################
-"""
-
 # Tabuada program in Python.
 #numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] # List of numbers from 1 to 10.
 numeros = list(range(1, 11)) # Range of numbers from 1 to 10.
 
 for n1 in numeros:
-    bloco = ""
+    print("{:-^20}".format(f"Tabuada do {n1}"))
     for n2 in numeros:
         resultado = n1 * n2
-        bloco += f"{n1} x {n2} = {resultado}\n"
-        #print(operacao)
-    print(template_base.format(bloco=bloco))
+        print("{:^20}".format(f"{n1} x {n2} = {resultado}"))
+    print("#" * 20 + "\n")
