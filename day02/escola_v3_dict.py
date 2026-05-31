@@ -1,38 +1,38 @@
 #!/usr/bin/env python3
 """
-Exibe relátorio de crianças por atividade.
+Display a report of children by activity.
 
-Imprimir a lista de crianças agrupadas por sala
-que frequenta por cada uma das atividades oferecidas pela escola.
+Print the list of children grouped by the classroom they attend
+for each of the activities offered by the school.
 """
 # Metadata about the script
 __version__ = "1.3"
 __author__  = "Alexandre Souza"
 
-# Dados
-sala1 = ["Maria", "João", "Ana", "Pedro", "Lucas", "Sofia"]
-sala2 = ["Carla", "Rafael", "Beatriz", "Gustavo", "Fernanda", "Bruno"]
+# Data
+room1 = ["Maria", "João", "Ana", "Pedro", "Lucas", "Sofia"]
+room2 = ["Carla", "Rafael", "Beatriz", "Gustavo", "Fernanda", "Bruno"]
 
-aula_ingles = ["Maria", "Carla", "Rafael", "Ana", "Gustavo"]
-aula_musica = ["João", "Beatriz", "Pedro", "Fernanda", "Sofia"]
-aula_artes = ["Lucas", "Bruno", "Ana", "Gustavo", "Sofia"]
+english_class = ["Maria", "Carla", "Rafael", "Ana", "Gustavo"]
+music_class = ["João", "Beatriz", "Pedro", "Fernanda", "Sofia"]
+arts_class = ["Lucas", "Bruno", "Ana", "Gustavo", "Sofia"]
 
-salas = {
-    "Sala 1": set(sala1),
-    "Sala 2": set(sala2),
+rooms = {
+    "Room 1": set(room1),
+    "Room 2": set(room2),
 }
 
-# Listas de atividades e suas respectivas aulas
-atividades = {
-    "Ingles": set(aula_ingles),
-    "Musica": set(aula_musica),
-    "Artes": set(aula_artes)
+# Activities and their respective participant sets
+activities = {
+    "English": set(english_class),
+    "Music": set(music_class),
+    "Arts": set(arts_class)
 }
 
-# Listar alunos em cada atividade por sala usando conjuntos para otimizar a busca
-for nome_atividade, participantes in atividades.items():
-    print(f"Atividade {nome_atividade}")
-    for nome_sala, alunos in salas.items():
-        inscritos = alunos & participantes
-        print(f"{nome_sala}: {sorted(inscritos)}")
-    print("-" * 30)  # Separador para melhor visualização
+# List students in each activity by room using sets for efficient lookup
+for activity_name, participants in activities.items():
+    print(f"Activity {activity_name}")
+    for room_name, students in rooms.items():
+        enrolled = students & participants
+        print(f"{room_name}: {sorted(enrolled)}")
+    print("-" * 30)  # Separator for readability
