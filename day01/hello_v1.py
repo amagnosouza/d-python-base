@@ -12,10 +12,10 @@ and run this script.
 
 Example:
     export LANG=en_US.UTF-8
-    python3 hello.py
+    python3 hello_v1.py
 
-Output:
-    Hello World!
+Output (example):
+    Hello, World!
 """
 # Metadata about the script
 __version__ = "0.1.1"
