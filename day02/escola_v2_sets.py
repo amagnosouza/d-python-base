@@ -25,9 +25,13 @@ activities = [
 ]
 
 # List students in each activity by room using sets for efficient lookup
+room1_set = set(room1)
+room2_set = set(room2)
+
 for activity_name, activity in activities:
-    activity_room1 = set(room1) & set(activity)
-    activity_room2 = set(room2) & set(activity)
+    activity_set = set(activity)
+    activity_room1 = sorted(room1_set & activity_set)
+    activity_room2 = sorted(room2_set & activity_set)
     print(f"Activity {activity_name} - Room 1:", activity_room1)
     print(f"Activity {activity_name} - Room 2:", activity_room2)
-    print("-"*30)  # Separator for readability
+    print("-" * 30)  # Separator for readability
