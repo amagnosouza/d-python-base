@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-Hello World Multi langage program in Python.
+Hello World multilanguage program in Python.
 
-Depending on the language configured in the environment, the message 
-will change.
+Depending on the language configured in the environment, the output
+message will change accordingly.
 
 How to run:
-Configure the environment variable LANG to the desired language (en_US.UTF-8 
-for English, fr_FR.UTF-8 for French, etc.) and then run this script.
+Set the environment variable `LANG` to the desired language
+(for example `en_US.UTF-8` for English, `fr_FR.UTF-8` for French)
+and run this script.
 
 Example:
     export LANG=en_US.UTF-8
@@ -22,21 +23,18 @@ __author__  = "Alexandre Souza"
 
 import os
 
-#current_lang = "en_US" # Default language
-current_lang = os.getenv("LANG", "pt_BR")[:5] # Default language
-# snake_case is used for variable names in Python.
+current_lang = os.getenv("LANG", "pt_BR")[:5]  # Default language (first 5 chars)
 
-# A simple "Hello, World!" program in Python. | This is a comment.
-msg = "Hello, World!" # This variable holds the message to be printed.
+# A simple "Hello, World!" program. `msg` holds the message to print.
+msg = "Hello, World!"
 
 if current_lang == "pt_BR":
-    msg = "Olá, Mundo!" # If the language is Portuguese, change the message.
+    msg = "Olá, Mundo!"
 elif current_lang == "fr_FR":
-    msg = "Bonjour, le Monde!" # If the language is French, change the message.
+    msg = "Bonjour, le Monde!"
 elif current_lang == "es_ES":
-    msg = "¡Hola, Mundo!" # If the language is Spanish, change the message.
+    msg = "¡Hola, Mundo!"
 elif current_lang == "de_DE":
-    msg = "Hallo, Welt!" # If the language is German, change the message.
+    msg = "Hallo, Welt!"
 
-
-print(msg) # This line prints the value of the variable `msg` to the console.
+print(msg)
