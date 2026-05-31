@@ -12,29 +12,29 @@ and run this script.
 
 Example:
     export LANG=en_US.UTF-8
-    python3 hello.py
+    python3 hello_v1.py
 
-Output:
-    Hello World!
+Output (example):
+    Hello, World!
 """
 # Metadata about the script
-__version__ = "1.0"
+__version__ = "0.1.1"
 __author__  = "Alexandre Souza"
 
 import os
 
 current_lang = os.getenv("LANG", "pt_BR")[:5]  # Default language (first 5 chars)
 
-# A simple "Hello, World!" program. `msg` holds the message to print.
-msg = "Hello, World!"
+# Messages mapping for supported languages
+messages = {
+    "pt_BR": "Olá, Mundo!",
+    "fr_FR": "Bonjour, le Monde!",
+    "es_ES": "¡Hola, Mundo!",
+    "de_DE": "Hallo, Welt!",
+    "en_US": "Hello, World!",
+}
 
-if current_lang == "pt_BR":
-    msg = "Olá, Mundo!"
-elif current_lang == "fr_FR":
-    msg = "Bonjour, le Monde!"
-elif current_lang == "es_ES":
-    msg = "¡Hola, Mundo!"
-elif current_lang == "de_DE":
-    msg = "Hallo, Welt!"
+# Select message based on current language, defaulting to English
+msg = messages.get(current_lang, "Hello, World!")
 
 print(msg)
