@@ -62,7 +62,7 @@ Outras operações úteis:
 len(cores)               # tamanho
 cores[0]                 # acessar por índice
 red, green, blue = cores # desempacotamento (se o tamanho permitir)
-nova = cores + ["black"]# concatena criando nova lista
+nova = cores + ["black"]  # concatena criando nova lista
 cores.count("green")    # conta ocorrências
 ```
 
