@@ -48,7 +48,7 @@ Pense em redes sociais: `A` = pessoas que você segue, `B` = pessoas que te segu
 Performance
 -----
 
-`set` é implementado sobre uma tabela de hash. Operações de busca (`in`) e inserção/remover têm complexidade média O(1), enquanto buscas em listas são O(n).
+`set` é implementado sobre uma tabela de hash. Operações de busca (`in`) e inserção/remoção têm complexidade média O(1), enquanto buscas em listas são O(n).
 
 ```python
 if "alfredo" in usuarios_set:   # muito rápido
