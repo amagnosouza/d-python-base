@@ -82,7 +82,7 @@ set(lista)   # {1, 2, 3}
 Limitações
 -----
 
-- Não mantêm ordem de inserção (até Python 3.7 a ordem não era garantida; hoje a iteração preserva ordem de inserção por implementação, mas não se deve depender disso para indexação).
+- Não preservam ordem de inserção; a ordem de iteração é arbitrária e pode variar entre execuções/versões do Python.
 - Não suportam indexação/subscrição — `conjunto[0]` gera `TypeError`.
 
 ```python
