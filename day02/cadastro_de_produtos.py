@@ -4,17 +4,33 @@
 __version__ = "1.0"
 __author__  = "Alexandre Souza"
 
-produto_nome = "Caneta"
-produto_preco = 2.50
-produto_estoque = 100
-produto_categoria = "Material Escolar"
-produto_codigo = "C12345"
-produto_descricao = "Caneta esferográfica azul, ideal para escrita diária."
-produto_fabricante = "Faber-Castell"
-produto_peso = 0.02  # Peso em kg
-produto_dimensoes = (14.0, 1.0, 1.0)  # Dimensões em cm (comprimento, largura, altura)
+produto = {
+    "nome": "Caneta",
+    "preco": 2.50,
+    "cores": ["azul", "preta", "vermelha"],
+    "estoque": 100,
+    "categoria": "Material Escolar",
+    "codigo": "C12345",
+    "descricao": "Caneta esferográfica azul, ideal para escrita diária.",
+    "fabricante": "Faber-Castell",
+    "peso": 0.02,
+    "dimensoes": {
+        "comprimento": 14.0,
+        "largura": 1.0,
+        "altura": 1.0
+    }
+}
 
-compra = ("Alexandre", produto_nome, 10, produto_preco)
-
-print(compra)
-print(f"O cliente {compra[0]} comprou {compra[2]} unidades de {compra[1]} por R${compra[3]:.2f} cada.")
+cliente = {
+    "nome": "Alexandre Souza"
+}
+compra = {
+    "cliente": cliente["nome"],
+    "produto": produto["nome"],
+    "quantidade": 10,
+    "preco_unitario": produto["preco"],
+}
+# Calcula o total da compra
+compra["total"] = compra["quantidade"] * compra["preco_unitario"]
+# Exibe o resumo da compra
+print(f"O cliente {compra['cliente']} comprou {compra['quantidade']} unidades de {compra['produto']} por R${compra['preco_unitario']:.2f} cada." f"O total da compra é R${compra['total']:.2f}.")
