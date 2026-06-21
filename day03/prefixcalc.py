@@ -17,7 +17,8 @@ Output:
     python3 prefixcalc.py div 10 2
 Output:
     5
-Os resultados serão salvos em um arquivo chamado "results.txt" no mesmo diretório do script.
+The results of the calculations are also saved in a file named "results.txt" in the current directory, with the format:
+[operation], [number1], [number2] = [result]
 """
 __version__ = "0.1.1"
 __author__  = "Alexandre Souza"
