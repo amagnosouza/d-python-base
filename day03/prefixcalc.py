@@ -17,10 +17,12 @@ Output:
     python3 prefixcalc.py div 10 2
 Output:
     5
+Os resultados serão salvos em um arquivo chamado "results.txt" no mesmo diretório do script.
 """
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__  = "Alexandre Souza"
 
+import os
 import sys
 
 arguments = sys.argv[1:]
@@ -33,15 +35,22 @@ num1 = int(num1_str)
 num2 = int(num2_str)
 
 if operation == "sum":
-    print(num1 + num2)
+    result = num1 + num2
 elif operation == "sub":
-    print(num1 - num2)
+    result = num1 - num2
 elif operation == "mul":
-    print(num1 * num2)
+    result = num1 * num2
 elif operation == "div":
-    print(num1 / num2)
+    result = num1 / num2
 else:
     print("Invalid operation")
     sys.exit(1)
+
+path = os.curdir
+filename = "results.txt"
+filepath = os.path.join(path, filename)
+
+with open(filepath, "a") as file_:
+    file_.write(f"{operation}, {num1}, {num2} = {result}\n")
 
 sys.exit(0)
