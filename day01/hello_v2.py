@@ -61,6 +61,15 @@ messages = {
     "en_US": "Hello, World!",
 }
 
+# EAFP (Easier to Ask for Forgiveness than Permission) approach to handle missing language
+try:
+    message = messages[current_lang]
+except KeyError as e:
+    print(f"Error: {e}")
+    print(f"Invalid language: {current_lang}")
+    print(f"Supported languages: {', '.join(messages.keys())}")
+    sys.exit(1)
+
 # Select message based on current language, defaulting to English
 print(
     messages[current_lang] * int(arguments["count"])
