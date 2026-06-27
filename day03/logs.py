@@ -3,6 +3,9 @@
 import os
 import logging # docs.python.org/3/library/logging.html#logging-levels
 
+# BOILERPLATE: https://docs.python.org/3/howto/logging.html#logging-from-multiple-modules
+# TODO: usar funcao
+# TODO: usar lib (loguru, structlog, logzero, etc)
 log_level = os.environ.get("LOG_LEVEL", "WARNING").upper() # DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 # instanciando o logger
