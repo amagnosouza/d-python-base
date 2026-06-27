@@ -51,7 +51,11 @@ path = os.curdir
 filename = "results.txt"
 filepath = os.path.join(path, filename)
 
-with open(filepath, "a") as file_:
-    file_.write(f"{operation}, {num1}, {num2} = {result}\n")
+try:
+    with open(filepath, "a") as file_:
+        file_.write(f"{operation}, {num1}, {num2} = {result}\n")
+except PermissionError as e:
+    print(f"Error writing to file: {e}")
+    sys.exit(1)
 
 sys.exit(0)
