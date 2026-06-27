@@ -21,6 +21,9 @@ ch.setFormatter(fmt) # adicionando o formato ao destino
 
 # destino: console, arquivo, etc
 log.addHandler(ch) # adicionando o destino ao logger
+
+
+
 log.debug("Mensagem de debug para desenvolvedores")
 log.info("Mensagem de informação para usuários")
 log.warning("Mensagem de aviso que algo inesperado aconteceu")

@@ -23,6 +23,21 @@ __author__  = "Alexandre Souza"
 
 import os
 import sys
+import logging
+
+log_level = os.environ.get("LOG_LEVEL", "WARNING").upper() # DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+# instanciando o logger
+log = logging.Logger("logs.py", logging.DEBUG)
+
+# levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+ch = logging.StreamHandler() # destino: console
+ch.setLevel(log_level) # definindo o nível de log do destino
+
+# formatacao: logging.<level>(<mensagem>)
+fmt = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s l: %(lineno)d f: %(filename)s - %(message)s") # formato da mensagem
+ch.setFormatter(fmt) # adicionando o formato ao destino
+log.addHandler(ch) # adicionando o destino ao logger
 
 arguments = {
     "lang": None,
@@ -34,9 +49,12 @@ for arg in sys.argv[1:]:
     try:
         key,value = arg.split("=")
     except ValueError as e:
-        print(f"Error: {e}")
-        print(f"Invalid argument: {arg}")
-        print(f"Usage: {sys.argv[0]} --lang=<language_code> --count=<number_of_times>")
+        log.error(
+            "Invalid argument format: %s", arg
+        )
+        log.error(
+            "Usage: {sys.argv[0]} --lang=<language_code> --count=<number_of_times>"
+        )
         sys.exit(1)
 
     # LBYL (Look Before You Leap) approach to validate the argument
