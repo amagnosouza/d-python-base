@@ -31,11 +31,14 @@ arguments = {
 
 for arg in sys.argv[1:]:
     # TODO fix ValueError: not enough values to unpack (expected 2, got 1) if arg does not contain "="
-    if "=" in arg:
+    try:
         key,value = arg.split("=")
-    else:
+    except ValueError as e:
+        print(f"Error: {e}")
         print(f"Invalid argument: {arg}")
-        sys.exit()
+        print(f"Usage: {sys.argv[0]} --lang=<language_code> --count=<number_of_times>")
+        sys.exit(1)
+
     key = key.lstrip("--").strip()  # Remove leading dashes
     value = value.strip()
     if key not in arguments:
