@@ -18,7 +18,7 @@ Output (example):
     Hello, World!
 """
 # Metadata about the script
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 __author__  = "Alexandre Souza"
 
 import os
@@ -31,7 +31,11 @@ arguments = {
 
 for arg in sys.argv[1:]:
     # TODO fix ValueError: not enough values to unpack (expected 2, got 1) if arg does not contain "="
-    key,value = arg.split("=")
+    if "=" in arg:
+        key,value = arg.split("=")
+    else:
+        print(f"Invalid argument: {arg}")
+        sys.exit()
     key = key.lstrip("--").strip()  # Remove leading dashes
     value = value.strip()
     if key not in arguments:
